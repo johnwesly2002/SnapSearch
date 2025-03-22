@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+.suggestion_container {
+    width: 100%;
+    background-color: white;
+    max-height: 300px;
+    overflow-y:scroll;
+    text-align: left;
+    padding: 10px;
+    position: absolute;
+    top: 120px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.suggestion_container::-webkit-scrollbar {
+    display: none;
+  }
