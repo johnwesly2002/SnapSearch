@@ -6,7 +6,7 @@
     width: 100%;
     background-color: white;
     max-height: 300px;
-    overflow-y:scroll;
+    overflow-y:scroll !important;
     text-align: left;
     padding: 10px;
     position: absolute;
@@ -24,5 +24,10 @@
     gap: 5px;
 }
 .SuggestionImage{
+    border-radius: 5px;
+}
+.SearchIcon{
+    height: 30;
+    width: 30;
     border-radius: 5px;
 }

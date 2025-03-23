@@ -34,6 +34,6 @@ input {
 }
 @media screen and (max-width: 568px) {
     .search_bar{
-        width: 350px;
+        width: 320px;
     }
 }
