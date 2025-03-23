@@ -17,3 +17,12 @@
 .suggestion_container::-webkit-scrollbar {
     display: none;
   }
+.suggestion{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+.SuggestionImage{
+    border-radius: 5px;
+}
