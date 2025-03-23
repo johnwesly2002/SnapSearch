@@ -2,22 +2,33 @@ import { useState } from 'react'
 import SearchComponent from './components/SearchComponent/SearchComponent'
 import './App.css'
 import SuggestionsComponent from './components/SuggestionsComponent/SuggestionsComponent'
-
+import LastSearchedComponent from './components/lastSearchedComponent/LastSearchedComponent';
 function App() {
   const [query, setquery] = useState('');
+  const [lastSearched, setlastSearched] = useState(JSON.parse(localStorage.getItem('lastSearched')) || []);
+  const [toggle, settoggle] = useState(false);
   const [suggestion, setSuggestions] = useState([]);
   const fetchData = async (query) => {
     try{
-    const response = await fetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json`);
-    if(!response.ok){
-      throw new Error('Error at response');
-    }
-    const data = await response.json();
-    setSuggestions(data);
+      const response = await fetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json`);
+      if(!response.ok){
+        throw new Error('Error at response');
+      }
+      const data = await response.json();
+      setSuggestions(data);
+      saveSearchQuery(query);
   } catch(error){
-    setSuggestions({AbstractText: 'No Results Found!!' });
+    setSuggestions([]);
     console.log(error);
   }
+  }
+  function saveSearchQuery(query) {
+    const lastSearched = JSON.parse(localStorage.getItem('lastSearched')) || [];
+    
+    lastSearched.push(query);
+    
+    localStorage.setItem('lastSearched', JSON.stringify(lastSearched));
+    setlastSearched(lastSearched);
   }
   const debounce = function(func, delay){
     let timer;
@@ -33,8 +44,8 @@ function App() {
     <>
    <div className='main_container'>
     <h1>SnapSearch</h1>
-    <SearchComponent debounce={debounceQuery} />
-    {suggestion.length != 0 ? <SuggestionsComponent query={query} suggestion={suggestion} /> : ''}
+    <SearchComponent debounce={debounceQuery} settoggle={settoggle} toggle={toggle} />
+    {suggestion.length != 0 ? <SuggestionsComponent query={query} suggestion={suggestion} /> : toggle ? <LastSearchedComponent searched={lastSearched}  /> : null}
    </div>
    <p>Desgined and Made by John wesly Uchula</p>
    </>

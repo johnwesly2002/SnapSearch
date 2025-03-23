@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+.lastsearched_container {
+    width: 100%;
+    background-color: white;
+    max-height: 300px;
+    overflow-y:scroll !important;
+    text-align: left;
+    padding: 10px;
+    position: absolute;
+    top: 120px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.lastsearched_container::-webkit-scrollbar {
+    display: none;
+  }
+  .suggestion{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+.SearchIcon{
+    height: 30;
+    width: 30;
+    border-radius: 5px;
+}
