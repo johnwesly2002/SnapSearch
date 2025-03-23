@@ -5,7 +5,7 @@
   text-align: center;
 }
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .main_container {
   position: relative;
