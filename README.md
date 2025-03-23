@@ -6,6 +6,6 @@ SnapSearch is Developed for Exploring the Debouncing and throttling Functionalit
 
 <img src="./src/assets/screenshot1.png">
 <hr>
-<img src="./src/assets/screenshot2.png">
+<img src="./src/assets/screenshot4.png">
 <hr>
 <img src="./src/assets/screenshot3.png">
