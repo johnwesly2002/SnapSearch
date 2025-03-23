@@ -7,7 +7,7 @@ export default function SearchComponent({ debounce}) {
     <div className='search_bar'>
       <IoIosSearch size={25} color='black' />
       <input type='text' placeholder='Search SnapSearch' onChange={(e) => {
-        debounce(e.target.value);
+        debounce(e.target.value.toLowerCase());
         }} />
       <MdOutlineSettingsVoice size={25} color='black' data-tooltip-id="voice-tooltip" />
     </div>
